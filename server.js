@@ -1,46 +1,45 @@
 const express = require("express");
 const cors = require("cors");
-const dotenv = require("dotenv");
-
-dotenv.config();
 
 const app = express();
+
 app.use(cors());
 app.use(express.json());
 
-// 🤖 AI FREE (mock thông minh)
-function fakeAI(idea) {
+// 🔥 AI FAKE (ổn định để deploy trước)
+function generateContent(idea) {
   return `
 🔥 CAPTION:
-${idea} - Bí mật mà 90% người chưa biết!
+${idea} - bí mật ít người biết!
 
-🔥 HASHTAG:
+🚀 HASHTAG:
 #tiktok #viral #kiemtien #${idea.replace(/\s/g, "")}
 
-🎬 SCRIPT (15-30s):
-Hook: Bạn có biết về "${idea}" chưa?
-Nội dung: Đây là cách đơn giản nhưng cực hiệu quả để bắt đầu...
-CTA: Follow để xem thêm nhiều bí mật kiếm tiền!
+🎬 SCRIPT:
+👉 Hook: Bạn có biết "${idea}" không?
+👉 Nội dung: Đây là cách đơn giản để bắt đầu...
+👉 CTA: Follow để xem thêm nội dung hay!
 `;
 }
 
-app.post("/generate", async (req, res) => {
+app.post("/generate", (req, res) => {
   try {
-    const idea = req.body.idea;
+    const { idea } = req.body;
 
-    const result = fakeAI(idea);
+    if (!idea) {
+      return res.json({ error: "Thiếu idea" });
+    }
 
-    res.json({
-      result: result
-    });
+    const result = generateContent(idea);
+
+    res.json({ result });
 
   } catch (err) {
-    res.json({
-      error: err.message
-    });
+    res.json({ error: err.message });
   }
 });
 
+// ⚠️ QUAN TRỌNG CHO RAILWAY
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
