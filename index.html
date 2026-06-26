@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>AI TikTok Content Generator</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial;
+      background: #0f172a;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .box {
+      width: 500px;
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    }
+
+    h1 {
+      text-align: center;
+      color: #38bdf8;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      background: #38bdf8;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background: #0ea5e9;
+    }
+
+    .result {
+      margin-top: 15px;
+      background: #0f172a;
+      padding: 10px;
+      border-radius: 10px;
+      white-space: pre-wrap;
+      min-height: 150px;
+    }
+
+    .loading {
+      color: yellow;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="box">
+  <h1>🔥 AI TikTok Generator</h1>
+
+  <input id="idea" placeholder="Nhập ý tưởng ví dụ: kiếm tiền online">
+
+  <button onclick="generate()">Tạo nội dung</button>
+
+  <div id="result" class="result">Kết quả sẽ hiển thị ở đây...</div>
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html> .
